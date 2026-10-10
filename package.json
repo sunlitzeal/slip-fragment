@@ -1,7 +1,7 @@
 {
-  "name": "@your-org/your-skill-name",
+  "name": "@agentskill/slip-fragment",
   "version": "1.0.0",
-  "description": "YOUR SKILL DESCRIPTION - Brief description of what this skill does",
+  "description": "SLIP-FRAGMENT skill",
   "main": "index.js",
   "scripts": {
     "postinstall": "agent-skill-installer install",
@@ -22,18 +22,18 @@
     "ai-assistant",
     "agent-skill",
     "claude",
-    "YOUR-KEYWORDS-HERE"
+    "slip-fragment"
   ],
-  "author": "YOUR NAME <your.email@example.com>",
+  "author": "Agent Skill <agentkill@example.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git"
+    "url": "https://github.com/agentkill/slip-fragment.git"
   },
   "bugs": {
-    "url": "https://github.com/YOUR-USERNAME/YOUR-REPO-NAME/issues"
+    "url": "https://github.com/agentkill/slip-fragment/issues"
   },
-  "homepage": "https://github.com/YOUR-USERNAME/YOUR-REPO-NAME#readme",
+  "homepage": "https://github.com/agentkill/slip-fragment#readme",
   "engines": {
     "node": ">=14.0.0"
   }
