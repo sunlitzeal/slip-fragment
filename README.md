@@ -1,2 +1,2 @@
 🤖 Antigravity / Gemini Code Assist:
-git clone https://github.com/sunlitzeal/slip-fragment.git .agent/skills/jianying-editor
+git clone https://github.com/sunlitzeal/slip-fragment.git .agents/skills/jianying-editor
