@@ -1,21 +1,11 @@
 {
-  "name": "@agentskill/slip-fragment",
+  "name": "@sunlitzeal/slip-fragment",
   "version": "1.0.0",
   "description": "SLIP-FRAGMENT skill",
-  "main": "index.js",
-  "scripts": {
-    "postinstall": "agent-skill-installer install",
-    "preuninstall": "agent-skill-installer uninstall",
-    "test": "agent-skill-installer install --dry-run && echo 'Installation test completed'",
-    "lint": "echo 'Add your linting commands here'"
-  },
   "files": [
     "SKILL.md",
     "scripts/"
   ],
-  "dependencies": {
-    "@agentskill/installer": "^1.0.0"
-  },
   "keywords": [
     "claude-code",
     "skill",
@@ -24,17 +14,14 @@
     "claude",
     "slip-fragment"
   ],
-  "author": "Agent Skill <agentkill@example.com>",
+  "author": "Sunlitzeal <849530434@qq.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/agentkill/slip-fragment.git"
+    "url": "https://github.com/sunlitzeal/slip-fragment.git"
   },
-  "bugs": {
-    "url": "https://github.com/agentkill/slip-fragment/issues"
-  },
-  "homepage": "https://github.com/agentkill/slip-fragment#readme",
+  "homepage": "https://github.com/sunlitzeal/slip-fragment#readme",
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   }
 }
