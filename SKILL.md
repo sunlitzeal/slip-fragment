@@ -1,124 +1,105 @@
 ---
-name: your-skill-name
-description: A clear description of what this skill does and when to use it. Include specific keywords that users would naturally say. Use when [specific scenarios].
-allowed-tools: Read, Bash
+name: slip-fragment
+description: 反推与生成滑倒摔跤类监控抓拍短视频的 AI 提示词。当用户提供滑倒或摔倒视频要求反推提示词，或需要为即梦、豆包等视频生成工具编写滑倒场景提示词时使用。触发词包括滑倒视频、摔倒视频、监控抓拍风、反推提示词、即梦提示词、豆包视频指令。
 ---
 
-# Your Skill Name
+# Slip Fragment —— 滑倒视频提示词工作流
 
-<!-- Replace this with a brief introduction to your skill -->
-A brief description of what this skill does and how it helps users.
+## Overview
 
-## Instructions
+以实测生成效果最好的一条后厨滑倒提示词为黄金模板，反推或生成"监控抓拍滑倒"类短视频提示词，输出通用/即梦/豆包三版。核心公式是"首句锁镜头 + 四段式正文（场景/人物与动作/风格/画质）+ 分层负面词 + 明确时长"。
 
-<!--
-This section tells Claude HOW to use your skill.
-Be specific and provide step-by-step guidance.
--->
+## 何时使用
 
-When the user [describes the scenario when this skill should be used]:
+- 用户提供滑倒/摔倒视频，要求反推提示词（配合 7 要素框架：主体/动作/场景/光影/运镜/风格/画质）
+- 用户描述一个滑倒场景，要求生成提示词（即梦、豆包或通用）
+- 不使用：非滑倒题材、电影级剧情片、需要运镜美学的视频
 
-1. **First Step**: [What Claude should do first]
-   - [Additional details or substeps]
-   - [Use bash, read files, etc.]
+## 黄金模板（实测最优，照此骨架填槽）
 
-2. **Second Step**: [What Claude should do next]
-   - [How to process or analyze information]
-   - [What to look for]
-
-3. **Final Step**: [How to complete the task]
-   - [What output to provide]
-   - [How to format the response]
-
-## Examples
-
-<!--
-Show concrete examples of using this skill.
-This helps Claude understand the expected behavior.
--->
-
-### Example 1: [Scenario Name]
-
-**User asks**: "[Example user question]"
-
-**What the skill does**:
-1. [First action]
-2. [Second action]
-3. [Result]
-
-**Expected output**:
-```
-[Show example output]
+```text
+真实监控抓拍画面，固定机位高角度俯拍，镜头装在厨房一角约 3 米高处，广角视野，全程镜头静止无运镜。
+场景：狭小杂物的餐馆后厨，浅色大块瓷砖地面湿滑反光；左侧多层不锈钢货架堆满塑料筐和塑料袋，货架旁有红色地垫，中间地面放着一台黑色方形电磁灶，右侧不锈钢小推车上摆着装骨头的大不锈钢盆、小锅和红色塑料筐。顶部白炽灯照明，光线略过曝，地面反光明显。
+人物与动作：一名穿蓝色短袖、侧边白条纹黑色运动裤、白色运动鞋、戴白色手套的年轻小伙，弯腰在货架上拿东西，直起身转身迈步时鞋底在湿滑地面瞬间打滑，重心失控，整个人向后腾空横摔、双腿向上踢起，手中白色盆脱手飞出；他仰面重重摔在瓷砖地上，撞得旁边货架剧烈晃动，货架上粉色筐、塑料袋和食材哗啦散落一地；他翻身后双手撑地趴跪缓神，周围一片狼藉。摔倒动作突然而剧烈，一气呵成。
+风格：监控抓拍纪实风，真实生活流，突发意外感。
+画质：标清监控质感，轻微噪点，白色瓷砖略过曝，色彩偏灰。画面中不出现任何时间戳、日期、时间数字、文字、水印、字幕和播放器界面。
+时长约 7 秒。负面提示词：时间戳，日期文字，年月日时分秒，时间数字水印，监控播放器界面，菜单栏，进度条，新闻标题，字幕条，台标，logo；镜头移动，推拉摇移，变焦，多机位切换，分屏，转场，慢动作，升格慢放；高清锐利画质，电影感调色，高饱和鲜艳色彩，镜头光晕；卡通，动漫，3D 渲染，CG 感；血迹，伤口，流血，受伤特写，痛苦扭曲表情，昏迷不起；摆拍感，表演痕迹，人物看向镜头；人物变形，肢体扭曲，多余手指，面部畸变，手脚消失；画面乱码文字，水印。
 ```
 
-### Example 2: [Another Scenario]
+> **画幅必填**：黄金模板原文为竖屏 9:16 实测最优。实际生成时必须写明画幅——把"竖屏 9:16"或"横屏 16:9"写进首句（如"真实监控抓拍画面，竖屏 9:16，固定机位…"，豆包版可写"帮我生成一条竖屏 9:16 约 7 秒…"）；用户未指定时默认竖屏 9:16 并向用户说明。
 
-**User asks**: "[Another example question]"
+## 骨架拆解与槽位
 
-**What the skill does**:
-1. [Actions...]
-2. [More actions...]
+| 段落 | 写法要领 |
+|---|---|
+| 首句镜头 | 真实监控抓拍 + 固定机位 + 视角（高角度俯拍/平视略俯）+ 安装位置与高度 + 广角 + "全程镜头静止无运镜" |
+| 画幅 | 每次必选并写入首句：竖屏 9:16（后厨/窄道/走廊/单人主体）或横屏 16:9（店堂/大空间/多人互动）；未指定时默认竖屏 9:16 并说明 |
+| 场景 | 按 左侧/中间/右侧 方位各写 1-3 件道具（材质+颜色+状态）；必写地面材质与湿滑反光、光源类型与过曝程度；道具要能参与连锁反应 |
+| 人物与动作 | 着装从头到脚写全（上衣/裤/鞋/手套/帽），颜色对比鲜明；动作按 5 阶段链条 |
+| 风格 | 固定句式"监控抓拍纪实风，真实生活流，突发意外感" |
+| 画质 | "标清监控质感，轻微噪点，{主色调}略过曝，色彩偏灰"，并内嵌"画面中不出现任何时间戳、日期、时间数字、文字、水印、字幕和播放器界面" |
+| 时长 | 单次摔倒 6-8 秒；连锁/多人 10-15 秒；超 8 秒用时间段分写（见 references/镜头与分镜.md） |
 
-## Best Practices
+### 5 阶段动作链
 
-<!-- List key guidelines for using this skill effectively -->
+1. 滑倒前（1-2 秒）：人物正在做的事（弯腰拿货/端锅/撒菜/拖地）
+2. 打滑瞬间：鞋底与地面的接触点 + 第一个失衡动作
+3. 空中失控：身体姿态（后仰腾空/前扑/侧摔/坐倒/连环踉跄）
+4. 落地与连锁：撞击部位 + 道具连锁（盆飞出/货架晃动散落/水花泼溅/汤泼身/面粉炸云）——连锁反应必须写，是核心看点
+5. 落地后（1-2 秒）：撑地缓神/翻身/他人搀扶
 
-- [Best practice 1]
-- [Best practice 2]
-- [Best practice 3]
+收尾句固定使用："摔倒动作突然而剧烈，一气呵成。"
 
-## Common Patterns
+### 槽位改写方向
 
-<!-- Show common usage patterns or templates -->
+| 槽位 | 黄金模板默认值 | 可替换 |
+|---|---|---|
+| 场景 | 狭小杂物餐馆后厨 | 堂食店/超市/街头/家中厨房/仓库/银行大厅 |
+| 机位 | 一角约 3 米高角度俯拍 | 墙面中位平视略俯/天花板广角斜俯 |
+| 打滑机制 | 湿滑瓷砖 | 油渍/菜叶/刚拖地/货物绊脚/奔跑急停 |
+| 摔法 | 后仰腾空横摔双腿朝天 | 前扑趴地/侧摔/坐倒/连环踉跄 |
+| 道具连锁 | 白盆飞出+货架散落 | 水花泼溅/面粉炸云/红汤泼身/水瓢弹跳 |
+| 画幅 | 竖屏 9:16 | 横屏 16:9（店堂/大空间/多人） |
 
-### Pattern 1: [Pattern Name]
+更多实测案例见 references/案例库.md。
 
-[Describe when to use this pattern]
+## 负面提示词（8 层）
 
-```
-[Example code or template]
-```
+按黄金模板顺序分 8 组：①时间与界面 ②运镜剪辑 ③画质风格 ④卡通CG ⑤安全 ⑥摆拍感 ⑦AI瑕疵 ⑧文字水印。完整词表与条件化增补（面粉防爆炸、热汤防烧伤、无时间戳全量等）见 references/负面词库.md。
 
-## Limitations
+原则：滑倒类 ①②⑧必带；⑤必带（防血腥审核）；其余按场景增删。
 
-<!-- Be transparent about what this skill CANNOT do -->
+## 三版输出格式
 
-- [Limitation 1]
-- [Limitation 2]
-- [What to do instead]
+1. 通用整合版：四段式整段提示词 + 负面提示词
+2. 即梦版：整段 + 2 段分镜（0-4 秒打滑到落地 / 4-7 秒连锁到缓神）+ 参数（画幅 9:16 或 16:9、时长、图生视频首帧建议）
+3. 豆包版：视频指令（口语化整段，开头写明画幅与时长）+ 负面控制 + 封面图指令（定格摔倒最夸张瞬间、版式与画幅一致、无文字）
 
-## Configuration
+高难摔法（腾空/翻转）与超 8 秒分镜模板见 references/镜头与分镜.md。
 
-<!-- If your skill is configurable, explain how -->
+## 反推模式流程（用户提供视频时）
 
-You can customize this skill by editing `scripts/config.json` after installation.
+1. 用 Python+OpenCV 按帧均匀抽 8-10 张 JPEG（脚本与帧图放系统临时目录，不进工作区）
+2. 逐帧读图，按 7 要素提取表记录：主体/动作/场景/光影/运镜/风格/画质
+3. 动作拆解为 5 阶段；用户要求"无年月日时分秒"时，忽略画面中所有时间文字且不写入提示词，负面词追加时间戳组
+4. 套黄金模板输出三版提示词 + 负面提示词
+5. 用完删除临时帧图与脚本
 
-Available options:
-- `option1`: [Description]
-- `option2`: [Description]
+## 常见翻车点
 
-## Additional Resources
+- 同一段既写"固定机位全程静止"又写"推近/环绕"——指令冲突必崩
+- 4-5 秒塞进摔倒+散落+他人搀扶 3 个事件——每秒最多 1 个大动作
+- 人物/道具用"那个人""那个盆"等含糊指代——必须具体（穿蓝短袖的小伙/白色塑料盆）
+- 漏掉道具连锁反应——只有人摔没有环境反应，效果减半
+- 提示词里出现具体日期时间数字
 
-<!-- Link to detailed documentation using Progressive Disclosure -->
+## 校验清单
 
-For more detailed information:
-- See [reference.md](reference.md) for complete API documentation
-- See [examples.md](examples.md) for more usage examples
-
----
-
-<!--
-TIPS FOR WRITING EFFECTIVE SKILLS:
-
-1. DESCRIPTION is crucial - Include specific keywords users would say
-   ❌ Bad: "Helps with files"
-   ✅ Good: "Analyzes Python files for syntax errors. Use when checking Python code, debugging syntax, or validating .py files."
-
-2. Keep SKILL.md under 500 lines - Use reference.md for detailed docs
-
-3. Be specific in instructions - Claude needs clear step-by-step guidance
-
-4. Show examples - Concrete examples are more helpful than abstract descriptions
-
-5. Test thoroughly - Install locally and verify Claude triggers it correctly
--->
+- [ ] 首句含"固定机位"和"全程镜头静止无运镜"
+- [ ] 已写明画幅（竖屏 9:16 或 横屏 16:9）且首句、即梦参数、豆包封面三处一致
+- [ ] 场景按方位写满且道具能参与连锁
+- [ ] 动作 5 阶段齐全、收尾句在
+- [ ] 画质段内嵌"不出现任何时间戳…播放器界面"
+- [ ] 负面词分层完整并按场景增补
+- [ ] 三版输出齐全，时长与动作量匹配
+- [ ] 全文无具体日期时间数字（除非用户要求）
